@@ -1,0 +1,217 @@
+html {
+    font-size: 62.5%;
+    font-family: sans-serif;
+}
+
+
+
+:root {
+    --text-s: clamp(1.12rem, 0.09vi + 1.08rem, 1.2rem);
+    --text-m: clamp(1.4rem, 0.23vi + 1.31rem, 1.6rem);
+    --text-l: clamp(1.75rem, 0.43vi + 1.58rem, 2.13rem);
+    --text-xl: clamp(2.19rem, 0.74vi + 1.89rem, 2.84rem);
+    --text-xxl: clamp(2.73rem, 1.2vi + 2.25rem, 3.79rem);
+    --text-xxxl: clamp(3.42rem, 1.86vi + 2.68rem, 5.05rem);
+
+
+    --space-s: clamp(0.875rem, 0.8533rem + 0.1087vw, 0.9375rem);
+    --space-m: clamp(1.125rem, 1.0815rem + 0.2174vw, 1.25rem);
+    --space-l: clamp(1.6875rem, 1.6223rem + 0.3261vw, 1.875rem);
+    --space-xl: clamp(2.25rem, 2.163rem + 0.4348vw, 2.5rem);
+    --space-xxl: clamp(3.375rem, 3.2446rem + 0.6522vw, 3.75rem);
+    --space-xxxl: clamp(4.5rem, 4.3261rem + 0.8696vw, 5rem);
+
+    --radius-s: 0.5rem;
+    --radius-m: 1rem;
+
+    --content-width: 900px;
+    
+    --primary-light-trans-10: rgba(195, 173, 231, 0.1);
+    --primary-light-trans-20: rgba(195, 173, 231, 0.2);
+    --primary-light: #c3ade7;
+    --primary: #5d39c0;
+    --primary-dark: #3b256f;
+    --primary-ultra-dark: #191227;
+
+    --neutral-light: #fafafa;
+    --neutral-dark: #0d0d0d;
+
+    --success: #059669;
+    --error: #dc2626;
+    --info: #2563eb;
+
+    --text-light: var(--neutral-light);
+    --text-dark: var(--neutral-dark);
+}
+
+
+
+
+
+
+body {
+    background: linear-gradient(147deg, var(--primary-dark) 0%, var(--primary-ultra-dark) 100%);
+    min-height: 100vh;
+    color: var(--text-light);
+}
+
+p, 
+span,
+ul,
+li {
+    font-size: var(--text-m);
+}
+
+h1 {
+    font-size: var(--text-xxl);
+}
+
+h2 {
+    font-size: var(--text-xl);
+}
+
+ul {
+    list-style: none;
+    padding: var(--space-m);
+}
+
+li {
+    margin-bottom: var(--space-s);
+}
+
+
+
+
+
+
+.section {
+    width: 100%;
+    padding-block-start: var(--space-xl);
+    padding-block-end: var(--space-xl);
+}
+
+.container {
+    width: 100%;
+    max-width: var(--content-width);
+    margin: auto;
+    display: flex;
+    padding: var(--space-xl);
+}
+
+
+
+
+
+
+
+
+
+
+header {
+    width: 100%;
+    background-color: var(--primary-light-trans-10);
+    border-bottom: 1px solid var(--primary-light-trans-20);
+}
+
+.header__inner {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    max-width: var(--content-width);
+    padding: var(--space-xl) var(--space-xl);
+    margin: auto;
+}
+
+.header__buttons {
+    display: none;
+}
+
+
+.grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-xl);
+}
+
+section:has(.grid) {
+    container-type: inline-size;
+    container-name: grid-container;
+}
+
+@container grid-container (width < 700px) {
+    .grid-3 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@container grid-container (width < 460px) {
+    .grid-3 {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+
+
+.count-card {
+    background-color: var(--primary-dark);
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    border-radius: var(--radius-m);
+    padding: var(--space-l);
+    gap: var(--space-s);
+    height: fit-content;
+    border: 1px solid var(--primary-light-trans-20);
+}
+
+.count-card__title-wrapper {
+    display: inline-flex;
+    gap: var(--space-m);
+    align-items: center;
+}
+
+.count-card__title {
+    font-size: var(--text-l);
+}
+
+.count-card__values-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background-color: var(--primary-ultra-dark);
+    padding: 1em 1.5em;
+    border-radius: var(--radius-s);
+    align-items: center;
+}
+
+.count-card__value {
+    display: flex;
+    justify-content: flex-end;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 600;
+}
+
+.percentage-up p {
+    background-color: var(--success);
+    padding: 0.2em 0.5em;
+    border-radius: var(--radius-s);
+}
+
+.percentage-down p {
+    background-color: var(--error);
+    padding: 0.2em 0.5em;
+    border-radius: var(--radius-s);
+}
+
+.percentage-nochange p {
+    background-color: var(--info);
+    padding: 0.2em 0.5em;
+    border-radius: var(--radius-s);
+}
+
+.count-card__description {
+    font-size: var(--text-s);
+    font-style: italic;
+}
+

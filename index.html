@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html id="html" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>No Agenda Troll Count v2</title>
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.2.2/dist/umd/supabase.min.js"></script>
+</head>
+<body>
+
+    <header>
+        <div class="header__inner">
+            <div class="header__logo">
+                <h1>No Agenda Troll Count</h1>
+            </div>
+            <div class="header__buttons">
+                <button class="log-count">+ Log Count</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="section">
+            <div class="container grid grid-3">
+                
+                <div class="count-card">
+                    <div class="count-card__title-wrapper">
+                        <box-icon name="data" color="white"></box-icon>
+                        <h2 class="count-card__title">Last Show</h2>
+                    </div>
+                    <div class="count-card__values-wrapper">
+                        <div class="count-card__day">
+                            <p>Thursday</p>
+                        </div>
+                        <div class="count-card__value">
+                            <p id="latestThursday"></p>
+                        </div>
+                    </div>
+                    <div class="count-card__values-wrapper">
+                        <div class="count-card__day">
+                            <p>Sunday</p>
+                        </div>
+                        <div class="count-card__value">
+                            <p id="latestSunday"></p>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="count-card">
+                    <div class="count-card__title-wrapper">
+                        <box-icon name="data" color="white"></box-icon>
+                        <h2 class="count-card__title">Last 10 Shows</h2>
+                    </div>
+                    <div class="count-card__values-wrapper">
+                        <div class="count-card__day">
+                            <p>Thursday</p>
+                        </div>
+                        <div class="count-card__value">
+                            <p id="last10Thursday"></p>
+                        </div>
+                    </div>
+                    <div class="count-card__values-wrapper">
+                        <div class="count-card__day">
+                            <p>Sunday</p>
+                        </div>
+                        <div class="count-card__value">
+                            <p id="last10Sunday"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="count-card">
+                    <div class="count-card__title-wrapper">
+                        <box-icon name="data" color="white"></box-icon>
+                        <h2 class="count-card__title">Last 100 Shows</h2>
+                    </div>
+                    <div class="count-card__values-wrapper">
+                        <div class="count-card__day">
+                            <p>Thursday</p>
+                        </div>
+                        <div class="count-card__value">
+                            <p id="last100Thursday"></p>
+                        </div>
+                    </div>
+                    <div class="count-card__values-wrapper">
+                        <div class="count-card__day">
+                            <p>Sunday</p>
+                        </div>
+                        <div class="count-card__value">
+                            <p id="last100Sunday"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="count-card">
+                    <div class="count-card__title-wrapper">
+                        <box-icon name="data" color="white"></box-icon>
+                        <h2 class="count-card__title">% Change</h2>
+                    </div>
+                    <div class="count-card__description">
+                        Percentage change between the latest show and the average of the previous 100 shows
+                    </div>
+                    <div class="count-card__values-wrapper">
+                        <div class="count-card__day">
+                            <p>Thursday</p>
+                        </div>
+                        <div class="count-card__value" id="changeThursday">
+                            <p></p>
+                        </div>
+                    </div>
+                    <div class="count-card__values-wrapper">
+                        <div class="count-card__day">
+                            <p>Sunday</p>
+                        </div>
+                        <div class="count-card__value" id="changeSunday">
+                            <p></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="count-card">
+                    <div class="count-card__title-wrapper">
+                        <box-icon name="data" color="white"></box-icon>
+                        <h2 class="count-card__title">All Time High*</h2>
+                    </div>
+                    <div class="count-card__description">
+                        *Last 100 shows for now
+                    </div>
+                    <div class="count-card__values-wrapper">
+                        <div class="count-card__day">
+                            <p>Thursday</p>
+                        </div>
+                        <div class="count-card__value">
+                            <p id="thursdayHigh"></p>
+                        </div>
+                    </div>
+                    <div class="count-card__values-wrapper">
+                        <div class="count-card__day">
+                            <p>Sunday</p>
+                        </div>
+                        <div class="count-card__value">
+                            <p id="sundayHigh"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="count-card">
+                    <div class="count-card__title-wrapper">
+                        <box-icon name="data" color="white"></box-icon>
+                        <h2 class="count-card__title">All Time Low*</h2>
+                    </div>
+                    <div class="count-card__description">
+                        *Last 100 shows for now
+                    </div>
+                    <div class="count-card__values-wrapper">
+                        <div class="count-card__day">
+                            <p>Thursday</p>
+                        </div>
+                        <div class="count-card__value">
+                            <p id="thursdayLow"></p>
+                        </div>
+                    </div>
+                    <div class="count-card__values-wrapper">
+                        <div class="count-card__day">
+                            <p>Sunday</p>
+                        </div>
+                        <div class="count-card__value">
+                            <p id="sundayLow"></p>
+                        </div>
+                    </div>
+                </div>
+
+                
+
+
+                
+            </div> <!--container-->
+        </section>
+    </main>
+</body>
+</html>
+
+<script src="script.js"></script>
+<script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
