@@ -53,6 +53,8 @@ body {
     background: linear-gradient(147deg, var(--primary-dark) 0%, var(--primary-ultra-dark) 100%);
     min-height: 100vh;
     color: var(--text-light);
+    display: grid;
+    grid-template-rows: auto 1fr auto;
 }
 
 p, 
@@ -60,6 +62,10 @@ span,
 ul,
 li {
     font-size: var(--text-m);
+}
+
+a {
+    color: var(--primary-light);
 }
 
 h1 {
@@ -111,6 +117,7 @@ header {
     width: 100%;
     background-color: var(--primary-light-trans-10);
     border-bottom: 1px solid var(--primary-light-trans-20);
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
 }
 
 .header__inner {
@@ -126,6 +133,36 @@ header {
 .header__buttons {
     display: none;
 }
+
+
+
+
+
+
+footer {
+    width: 100%;
+    background-color: var(--primary-light-trans-10);
+    border-top: 1px solid var(--primary-light-trans-20);
+}
+
+.footer__inner {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    max-width: var(--content-width);
+    padding: var(--space-m) var(--space-xl);
+    margin: auto;
+}
+
+.footer__text p {
+    font-size: calc(var(--text-s) * 1.2);
+}
+
+
+
+
+
 
 
 .grid-3 {
@@ -164,6 +201,7 @@ section:has(.grid) {
     gap: var(--space-s);
     height: fit-content;
     border: 1px solid var(--primary-light-trans-20);
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
 }
 
 .count-card__title-wrapper {
